@@ -77,6 +77,26 @@ namespace SecondApp
 
             #endregion
 
+            #region Q4: Static Keyword
+            //=======================================
+            //public class Order
+            //{
+            //    public static int TotalOrders = 0;
+            //    public string Item;
+            //    public Order(string item)
+            //    {
+            //        Item = item;
+            //        TotalOrders++;
+            //    }
+            //}
+            //=======================================
+            //a)Static vs. Instance: static means the member belongs to the class itself rather than
+            // specific object.TotalOrders is shared across all instances, while Item is unique
+            // to each individual Order object.
+
+            //b) Static Access: No, a static method cannot access the Item field directly.
+            //Static methods exist without an instance, whereas Item requires a specific object to exist.
+            #endregion
 
         }
     }
