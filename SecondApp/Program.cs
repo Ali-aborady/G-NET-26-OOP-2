@@ -98,6 +98,82 @@ namespace SecondApp
             //Static methods exist without an instance, whereas Item requires a specific object to exist.
             #endregion
 
+            #region Part2
+
+            Cinema cinema = new Cinema();
+
+
+            Console.WriteLine("=== Enter 3 Tickets ===\n");
+
+            for (int i = 1; i <= 3; i++)
+            {
+                Console.WriteLine($"--- Ticket {i} ---");
+
+                Console.Write("  Movie Name   : ");
+                string name = Console.ReadLine()!;
+
+                Console.WriteLine("  Type  ->  0=Standard  1=VIP  2=IMAX");
+                Console.Write("  Choose (0/1/2): ");
+                TicketType type = (TicketType)int.Parse(Console.ReadLine()!);
+
+                Console.Write("  Seat Row (A-Z): ");
+                char row = Console.ReadLine()!.ToUpper()[0];
+
+                Console.Write("  Seat Number  : ");
+                int seatNum = int.Parse(Console.ReadLine()!);
+
+                Console.Write("  Price (EGP)  : ");
+                double price = double.Parse(Console.ReadLine()!);
+
+                Ticket t = new Ticket(name, type, new SeatLocation(row, seatNum), price);
+
+                cinema.AddTicket(t);
+                Console.WriteLine();
+            }
+
+            //b) Print all 3 tickets via indexer
+
+            Console.WriteLine("=== All Tickets ===");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"\n[ Ticket at index {i} ]");
+                cinema[i]?.PrintTicket();
+            }
+
+            //c) Search by movie name
+            Console.WriteLine("\n=== Search for a Movie ===");
+            Console.Write("Enter movie name to search: ");
+            string search = Console.ReadLine();
+
+            Ticket found = cinema.GetMovieByName(search);
+            if (found != null)
+            {
+                Console.WriteLine("Found:");
+                found.PrintTicket();
+            }
+            else
+            {
+                Console.WriteLine($"'{search}' — Not Found.");
+            }
+
+            //d) Total tickets sold
+            Console.WriteLine("\n=== Tickets Sold ===");
+            Console.WriteLine($"Total Tickets Sold: {Ticket.GetTotalTicketsSold()}");
+
+            //e) Generate 2 booking references
+            Console.WriteLine("\n=== Booking References ===");
+            Console.WriteLine(BookingHelper.GenerateBookingReference());
+            Console.WriteLine(BookingHelper.GenerateBookingReference());
+
+
+
+            //f) Group discount: 5 tickets @ 80 EGP
+            double groupTotal = BookingHelper.CalcGroupDiscount(5, 80);
+            Console.WriteLine($"5 tickets × 80 EGP");
+            Console.WriteLine($"Full Price : {5 * 80} EGP");
+            Console.WriteLine($"After 10%  : {groupTotal:F2} EGP");
+
+            #endregion
         }
     }
 }  

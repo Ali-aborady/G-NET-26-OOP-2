@@ -1,0 +1,17 @@
+﻿namespace SecondApp
+{
+    public struct SeatLocation
+    {
+        public char Row;
+        public int Number;
+
+        public SeatLocation(char row, int number)
+        {
+            Row = row;
+            Number = number;
+        }
+
+        public override string ToString() => $"{Row}{Number}";
+    }
+}
+
