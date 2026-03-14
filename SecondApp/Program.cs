@@ -50,6 +50,32 @@ namespace SecondApp
             //properties can contain logic within their get and set accessors.
             #endregion
 
+            #region Q3 : Look at the following code and answer the questions below:
+            //=====================================================================
+            //    public class StudentRegister
+            //    {
+            //      private string[] names = new string[5];
+            //      public string this[int index]
+            //      {
+            //          get { return names[index]; }
+            //          set { names[index] = value; }
+            //      }
+            //    }
+            //=====================================================================
+            //a) What is `this[int index]` called? Explain its purpose.
+            //It allows instances of a class to be indexed just like arrays,
+            //making the object act as a collection of data.
+
+            //b) What happens if someone writes `register[10] = "Ali";` ? How would you
+            //make the indexer safer ?
+
+            //c) Can a class have more than one indexer? If yes, give an example of when
+            //that would be useful.
+
+
+
+
+            #endregion
 
 
         }
