@@ -44,6 +44,11 @@ namespace SecondApp
 
             #endregion
 
+            #region Q2:Fields vs. Properties
+            //field is a variable declared directly in a class to store data.
+            //property is a member that provides a flexible mechanism to read, write, or compute the value of a private field
+            //properties can contain logic within their get and set accessors.
+            #endregion
 
 
 
